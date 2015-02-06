@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:form>
+<p:panelGrid columns="2">
+<h:outputText value="Name" />
+<p:inputText value="#{userc.newUser.userName}"/>
+<h:outputText value="Password" />
+<p:inputText value="#{userc.newUser.userPassword}"/>
+<h:outputText value="Email" />
+<p:inputText value="#{userc.newUser.userEmail}"/>
+<h:outputText value="Picture" />
+<p:fileUpload auto="true" value="#{userc.uFile}" fileUploadListener="#{userc.handleFileUpload}"/>
+<h:outputText value="" />
+<p:commandButton value="register" action="#{userc.register()}"/>
+</p:panelGrid>
+</h:form>
+</ui:composition>

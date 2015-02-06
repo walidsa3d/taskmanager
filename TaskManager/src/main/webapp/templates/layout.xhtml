@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+>
+    <h:head>
+        <title><ui:insert name="pageTitle"/></title>
+        <h:outputStylesheet library="css" name="layout.css"/>
+            </h:head>
+    <h:body>
+        <p:layout style="min-height:700px;">
+            <p:layoutUnit position="north" size="80" styleClass="north">
+                <h:outputText value="Task Manager" />
+                <ui:include src="/templates/topbar.xhtml" />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="40" styleClass="footer">
+                <h:outputText value="  Walid Saad © All Rights Reserved" />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="east" size="600" header="Task Details">
+                <ui:insert name="pageDetails"/>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center" >
+                <ui:insert name="pageMaster"/>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>

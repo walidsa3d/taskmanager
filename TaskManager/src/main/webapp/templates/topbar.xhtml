@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+  <h:form>
+  <p:menubar>
+        <p:submenu label="Home" icon="ui-icon-document">
+         		<p:menuitem value="Log in" url="/pages/login.jsf?faces-redirect=true" />
+                <p:menuitem value="Log out" action="#{userc.logout}" />
+                <p:menuitem value="Register" url="/pages/register.jsf?faces-redirect=true" rendered="#{!userc.islogged}"/>                
+                <p:menuitem value="Home" url="/pages/login.jsf?faces-redirect=true" />   
+                             
+            </p:submenu>
+       <p:submenu label="Tasks">
+       <p:menuitem value="New" onclick="PF('dlg').show();" />       
+       </p:submenu>
+    </p:menubar>     
+    </h:form>
+    
+</ui:composition>

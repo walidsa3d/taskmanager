@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+		<h:form id="mmaster">
+		<p:growl id="growl" showDetail="true" sticky="false" /> 
+		<p:dataTable
+		id="tbl"
+		value="#{taskController.tasklist}" 
+		widgetVar="tskTable"
+		var="tsk"
+		border="1" 
+		paginator="true"
+		paginatorPosition="bottom"
+		rows="10"
+		rowKey="#{tsk.taskId}"
+		emptyMessage="No Tasks Found"
+		>
+		    
+			<f:facet name="header">
+			<h:outputText value="Tasks" />
+			</f:facet>
+			<p:column headerText="ID" sortBy="#{tsk.taskId}"
+			styleClass="protocol">
+				<h:outputText value="#{tsk.taskId}" />
+				</p:column>
+			<p:column headerText="Name" sortBy="#{tsk.taskName}"
+			styleClass="friendly">
+				<h:outputText value="#{tsk.taskName}" />
+			</p:column>
+			<p:column headerText="Priority" sortBy="#{tsk.taskPriority}"
+			styleClass="friendly">
+				<h:outputText value="#{tsk.taskPriority}" />
+			</p:column>
+			<p:column headerText="State" sortBy="#{tsk.taskState}"
+			styleClass="type">
+				<h:outputText value="#{tsk.taskState}" />
+			</p:column>
+		<p:column >
+		<p:commandButton id="edit" icon="ui-icon-wrench" process="@all" update=":details">
+        <f:setPropertyActionListener value="#{tsk}" target="#{taskController.task}" />
+        </p:commandButton> 
+        <p:tooltip id="toolTipTrack" for="edit" value="This tooltip tracks mouse position" trackMouse="true" />
+        
+		</p:column>
+	</p:dataTable>
+	<p:dialog widgetVar="dlg" header="New Task">
+	<p:panelGrid columns="2">
+	<h:outputText value="Name" />
+	<p:inputText value="#{taskController.newTask.taskName}"/>
+	<h:outputText value="Name" />
+	<p:selectOneMenu value="#{taskController.newTask.taskPriority}">
+	<f:selectItem itemLabel="High" itemValue="High"/>
+	<f:selectItem itemLabel="Medium" itemValue="Medium"/>
+	<f:selectItem itemLabel="Low" itemValue="Low"/>	
+	</p:selectOneMenu>
+    <h:outputText value="Description" />
+	<p:inputTextarea value="#{taskController.newTask.taskDescription}"/>
+	<h:outputText value="" />
+	<p:commandButton value="Save" actionListener="#{taskController.doSave()}" update=":mmaster" oncomplete="PF('dlg').hide();"/>
+	</p:panelGrid>
+	</p:dialog>
+</h:form>
+</ui:composition>

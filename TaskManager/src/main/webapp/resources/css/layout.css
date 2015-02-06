@@ -1,0 +1,54 @@
+body{
+	background-color: aqua;
+}
+.protocol{
+	background-color: red;
+	width:16px;
+	font-weight: bold;
+		
+}
+.friendly{
+		background-color: maroon;
+}
+.model{
+		background-color: blue;
+}
+.type{
+	background-color: black;
+}
+.ui-panelgrid td {
+    background-color: black !important;
+    width:390px;
+    border-style: none !important
+}
+.north{	
+	text-align:center;
+	font-weight:bold;
+	font-size:22px;
+}
+.footer{
+	text-align: center;
+	color:yellow !important;
+}
+.column1{
+	color:yellow;
+	font-weight: bold;
+	width:20px;
+}
+.column2{
+	color:white;
+}
+.tab{
+	background-color: black;
+}
+.ui-datagrid-header {
+    background-color: red 3important;
+}
+.ui-layout-north {
+        z-index:20 !important;
+        overflow:visible !important;
+    }
+
+.ui-layout-north .ui-layout-unit-content {
+        overflow:visible !important;
+    }

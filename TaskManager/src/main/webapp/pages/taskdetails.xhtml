@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+		<h:form id="details">
+		<p:panelGrid columns="2" cellpadding="5" columnClasses="column1,column2">
+	    <p:outputLabel value="ID" />
+        <p:outputLabel value="#{taskController.task.taskId}" />
+        <p:outputLabel value="State" />
+        <p:outputLabel value="#{taskController.task.taskState}" />
+        <p:outputLabel value="Title" />
+        <p:outputLabel value="#{taskController.task.taskName}" />
+        <p:outputLabel value="Priority" />
+        <p:outputLabel value="#{taskController.task.taskPriority}" />
+        <p:outputLabel value="Description" />
+        <p:outputLabel value="#{taskController.task.taskDescription}" />     
+        <p:commandButton value="done" actionListener="#{taskController.doDone()}" update=":mmaster"/>        
+        </p:panelGrid>
+	</h:form>
+</ui:composition>
